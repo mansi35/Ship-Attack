@@ -12,6 +12,7 @@ public class pop_up : NetworkBehaviour
     // public GameObject Ship;
     public GameObject Cube;
     public int myColor;
+    public GameObject Question;
     Color red = new Color(1, 0, 0, 1);
     Color blue = new Color(0, 0, 1, 1);
     Color green = new Color(0, 1, 0, 1);
@@ -43,9 +44,9 @@ public class pop_up : NetworkBehaviour
                 // GameObject.Find("Colonial Ship 1").layer = layerCol;
                 // Ship.layer = 2;
                 Cube.layer = layerCol;
-                // Destroy(collisionInfo.gameObject);
-                SceneManager.LoadScene("button", LoadSceneMode.Additive);
-                // loadScene = true;
+                // SceneManager.LoadScene("button", LoadSceneMode.Additive);
+                Question.SetActive(true);
+                Destroy(collisionInfo.gameObject);
             }
         }
     }
