@@ -6,6 +6,7 @@ TagManager:
   tags:
   - cannon
   - Ship
+  - level
   layers:
   - Default
   - TransparentFX

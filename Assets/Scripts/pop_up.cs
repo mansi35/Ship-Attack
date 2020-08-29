@@ -15,31 +15,37 @@ public class pop_up : NetworkBehaviour
     Color red = new Color(1, 0, 0, 1);
     Color blue = new Color(0, 0, 1, 1);
     Color green = new Color(0, 1, 0, 1);
+    void Update() {
+        if (transform.parent.GetComponent<NetworkIdentity>().hasAuthority)//make sure this is an object that we ae controlling
+        {
+            gameObject.layer = layerCol;
+        }
+    }
     private void OnCollisionEnter(Collision collisionInfo)
     {
         if (transform.parent.GetComponent<NetworkIdentity>().hasAuthority)
         {
-            bool loadScene = false;
-            Debug.Log("cannon");
-            if (collisionInfo.gameObject.tag == "cannon" && !loadScene)
+            // bool loadScene = false;
+            if (collisionInfo.gameObject.tag == "cannon")
             {
-                if (collisionInfo.gameObject.GetComponent<Renderer>().sharedMaterial.color == blue) {
-                    myColor = 2;
-                }
-                else if (collisionInfo.gameObject.GetComponent<Renderer>().sharedMaterial.color == green) {
-                    myColor = 1;
-                }
-                else if (collisionInfo.gameObject.GetComponent<Renderer>().sharedMaterial.color == red) {
-                    myColor = 0;
-                }
+                // if (collisionInfo.gameObject.GetComponent<Renderer>().sharedMaterial.color == blue) {
+                //     myColor = 2;
+                // }
+                // else if (collisionInfo.gameObject.GetComponent<Renderer>().sharedMaterial.color == green) {
+                //     myColor = 1;
+                // }
+                // else if (collisionInfo.gameObject.GetComponent<Renderer>().sharedMaterial.color == red) {
+                //     myColor = 0;
+                // }
                 Debug.Log("cannon");
                 GameObject.Find("Sail_01").GetComponent<MeshRenderer>().material = myMaterial;
                 GameObject.Find("Sail_02").GetComponent<MeshRenderer>().material = myMaterial;
                 // GameObject.Find("Colonial Ship 1").layer = layerCol;
                 // Ship.layer = 2;
-                Cube.layer = 2;
+                Cube.layer = layerCol;
+                // Destroy(collisionInfo.gameObject);
                 SceneManager.LoadScene("button", LoadSceneMode.Additive);
-                loadScene = true;
+                // loadScene = true;
             }
         }
     }

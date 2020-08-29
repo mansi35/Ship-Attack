@@ -29,12 +29,12 @@ public class GameManager : MonoBehaviour
     
     void Start() {
         // string levelColor;
-        foreach (GameObject ship in GameObject.FindGameObjectsWithTag("Ship"))
-        {
-            if (ship.transform.parent.GetComponent<NetworkIdentity>().hasAuthority) {
-                color = ship.GetComponent<pop_up>().myColor;
-            }
-        }
+        // foreach (GameObject ship in GameObject.FindGameObjectsWithTag("Ship"))
+        // {
+        //     if (ship.transform.parent.GetComponent<NetworkIdentity>().hasAuthority) {
+        //         color = ship.GetComponent<pop_up>().myColor;
+        //     }
+        // }
         // color = GameObject.Find("Colonial Ship 1").GetComponent<pop_up>().myColor;
         LoadQuestions();
         foreach (var question in Questions) {
